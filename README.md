@@ -1,6 +1,9 @@
 # handWriting
 This repository is based on https://github.com/greydanus/scribe project which was inspired by this [blog post](https://greydanus.github.io/2016/08/21/handwriting/).
 
+## First time use:
+Download dataset from [IAM Handwriting Database](http://www.fki.inf.unibe.ch/databases/iam-handwriting-database). There are two folders in this dataset that matter: 'ascii' and 'lineStrokes'. Put these in a './data' directory relative to this project. When an instance of this model is created for the first time it will parse all of the xml data in these files and save a processed version to a pickle file. This takes about 10 minutes but you only need to do it once.
+
 Scribe: Realistic Handwriting in Tensorflow
 =======
 
