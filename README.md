@@ -53,14 +53,14 @@ The model at one time step looks like this
 Unrolling in time, we get
 ![Unrolled model](static/model_unrolled.png?raw=true)
 
-I've implemented the attention mechanism from the paper:
+The attention mechanism is implemented from this paper:
 ![Attention mechanism](static/diag_window.png?raw=true)
 
 Dependencies
 --------
-* All code is written in python 2.7. You will need:
+* All code is working with python 3.6. You will need:
  * Numpy
  * Matplotlib
- * [TensorFlow 1.0](https://www.tensorflow.org/install/)
+ * [TensorFlow 1.4](https://www.tensorflow.org/install/)
  * OPTIONAL: [Jupyter](https://jupyter.org/) (if you want to run sample.ipynb and dataloader.ipynb)
 
