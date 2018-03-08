@@ -121,14 +121,14 @@ class DataLoader():
                 
         assert(len(strokes)==len(asciis)), "There should be a 1:1 correspondence between stroke data and ascii labels."
         f = open(data_file,"wb")
-        pickle.dump([strokes,asciis], f, protocol=2)
+        ccPickle.dump([strokes,asciis], f, protocol=2)
         f.close()
         self.logger.write("\tfinished parsing dataset. saved {} lines".format(len(strokes)))
 
 
     def load_preprocessed(self, data_file):
         f = open(data_file,"rb")
-        [self.raw_stroke_data, self.raw_ascii_data] = pickle.load(f)
+        [self.raw_stroke_data, self.raw_ascii_data] = cPickle.load(f,encoding='bytes')
         f.close()
 
         # goes thru the list, and only keeps the text entries that have more than tsteps points
@@ -182,7 +182,7 @@ class DataLoader():
         x_batch = []
         y_batch = []
         ascii_list = []
-        for i in xrange(self.batch_size):
+        for i in range(self.batch_size):
             data = self.stroke_data[self.idx_perm[self.pointer]]
             idx = random.randint(0, len(data)-self.tsteps-2)
             x_batch.append(np.copy(data[:self.tsteps]))
@@ -204,20 +204,21 @@ class DataLoader():
 # index position 0 means "unknown"
 def to_one_hot(s, ascii_steps, alphabet):
     steplimit=3e3; s = s[:3e3] if len(s) > 3e3 else s # clip super-long strings
+    s = s.decode('utf8')
     seq = [alphabet.find(char) + 1 for char in s]
     if len(seq) >= ascii_steps:
-        seq = seq[:ascii_steps]
+        seq = seq[:int(ascii_steps)]
     else:
         seq = seq + [0]*(ascii_steps - len(seq))
-    one_hot = np.zeros((ascii_steps,len(alphabet)+1))
-    one_hot[np.arange(ascii_steps),seq] = 1
+    one_hot = np.zeros((int(ascii_steps),len(alphabet)+1))
+    one_hot[np.arange(int(ascii_steps)),seq] = 1
     return one_hot
 
 # abstraction for logging
 class Logger():
     def __init__(self, args):
         self.logf = '{}train_scribe.txt'.format(args.log_dir) if args.train else '{}sample_scribe.txt'.format(args.log_dir)
-        with open(self.logf, 'w') as f: f.write("Scribe: Realistic Handriting in Tensorflow\n     by Sam Greydanus\n\n\n")
+        with open(self.logf, 'w') as f: f.write("Scribe: Realistic Handriting in Tensorflow\n     by Alexandre Langeois\n\n\n")
 
     def write(self, s, print_it=True):
         if print_it:
