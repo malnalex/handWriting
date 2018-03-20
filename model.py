@@ -148,7 +148,7 @@ class Model():
             gaussian = gaussian2d(x1_data, x2_data, mu1, mu2, sigma1, sigma2, rho)
             term1 = tf.multiply(gaussian, pi)
             term1 = tf.reduce_sum(term1, 1, keep_dims=True) #do inner summation
-            term1 = -tf.log(tf.maximum(term1, 1e-20)) # some errors are zero -> numerical errors.
+            term1 = -tf.log(tf.maximum(term1, 1e-12)) # some errors are zero -> numerical errors.
 
             term2 = tf.multiply(eos, eos_data) + tf.multiply(1-eos, 1-eos_data) #modified Bernoulli -> eos probability
             term2 = -tf.log(term2) #negative log error gives loss
