@@ -1,4 +1,3 @@
 *.pyc
 data/lineStrokes/*
 data/ascii/*
-logs/*

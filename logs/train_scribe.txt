@@ -1,0 +1,118 @@
+Scribe: Realistic Handriting in Tensorflow
+     by Alexandre Langeois
+
+
+
+TRAINING MODE...
+<__main__.Param object at 0x000002ACAE59E588>
+
+loading data...
+	loaded dataset:
+		11315 train individual data points
+		595 valid individual data points
+		176 batches
+building model...
+	using alphabet abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+attempt to load saved model...
+loaded model: saved\model.ckpt-300
+training...
+learning rate: 9.999999747378752e-05
+310/50000, loss = 1.909, regloss = 0.20997, valid_loss = 1.981, time = 0.188
+320/50000, loss = 1.840, regloss = 0.37489, valid_loss = 1.900, time = 0.156
+330/50000, loss = 1.817, regloss = 0.51595, valid_loss = 1.825, time = 0.156
+340/50000, loss = 1.743, regloss = 0.63468, valid_loss = 1.751, time = 0.172
+350/50000, loss = 1.672, regloss = 0.73602, valid_loss = 1.687, time = 0.172
+360/50000, loss = 1.667, regloss = 0.82260, valid_loss = 1.629, time = 0.141
+370/50000, loss = 1.496, regloss = 0.89206, valid_loss = 1.571, time = 0.156
+380/50000, loss = 1.442, regloss = 0.94893, valid_loss = 1.519, time = 0.156
+390/50000, loss = 1.373, regloss = 0.99701, valid_loss = 1.471, time = 0.141
+learning rate: 9.999999747378752e-05
+attempt to load saved model...
+loaded model: saved\model.ckpt-400
+training...
+learning rate: 9.999999747378752e-05
+410/50000, loss = 1.483, regloss = 0.14621, valid_loss = 1.393, time = 0.156
+420/50000, loss = 1.305, regloss = 0.25924, valid_loss = 1.356, time = 0.156
+430/50000, loss = 1.428, regloss = 0.36134, valid_loss = 1.328, time = 0.156
+440/50000, loss = 1.221, regloss = 0.45164, valid_loss = 1.298, time = 0.156
+450/50000, loss = 1.166, regloss = 0.52760, valid_loss = 1.272, time = 0.156
+460/50000, loss = 1.333, regloss = 0.59672, valid_loss = 1.251, time = 0.156
+470/50000, loss = 1.115, regloss = 0.65296, valid_loss = 1.233, time = 0.156
+480/50000, loss = 1.215, regloss = 0.70324, valid_loss = 1.215, time = 0.156
+490/50000, loss = 1.246, regloss = 0.74706, valid_loss = 1.201, time = 0.156
+SAVED MODEL.
+500/50000, loss = 1.224, regloss = 0.78636, valid_loss = 1.189, time = 0.172
+510/50000, loss = 1.150, regloss = 0.81899, valid_loss = 1.180, time = 0.172
+520/50000, loss = 1.205, regloss = 0.85061, valid_loss = 1.172, time = 0.156
+530/50000, loss = 1.105, regloss = 0.87829, valid_loss = 1.167, time = 0.156
+540/50000, loss = 1.309, regloss = 0.90425, valid_loss = 1.157, time = 0.156
+550/50000, loss = 1.129, regloss = 0.92665, valid_loss = 1.153, time = 0.156
+560/50000, loss = 1.176, regloss = 0.94411, valid_loss = 1.147, time = 0.156
+570/50000, loss = 1.229, regloss = 0.96032, valid_loss = 1.142, time = 0.156
+580/50000, loss = 1.081, regloss = 0.97255, valid_loss = 1.135, time = 0.188
+590/50000, loss = 1.072, regloss = 0.98531, valid_loss = 1.134, time = 0.172
+learning rate: 9.999999747378752e-05
+SAVED MODEL.
+600/50000, loss = 1.227, regloss = 0.99877, valid_loss = 1.127, time = 0.172
+610/50000, loss = 1.082, regloss = 1.00625, valid_loss = 1.124, time = 0.188
+620/50000, loss = 1.025, regloss = 1.01608, valid_loss = 1.122, time = 0.156
+630/50000, loss = 1.068, regloss = 1.02391, valid_loss = 1.115, time = 0.156
+640/50000, loss = 1.155, regloss = 1.03075, valid_loss = 1.113, time = 0.156
+650/50000, loss = 1.147, regloss = 1.03723, valid_loss = 1.108, time = 0.156
+660/50000, loss = 1.054, regloss = 1.04035, valid_loss = 1.105, time = 0.188
+670/50000, loss = 1.088, regloss = 1.04541, valid_loss = 1.104, time = 0.172
+680/50000, loss = 1.050, regloss = 1.04745, valid_loss = 1.101, time = 0.172
+690/50000, loss = 1.110, regloss = 1.04960, valid_loss = 1.100, time = 0.172
+SAVED MODEL.
+700/50000, loss = 1.101, regloss = 1.05176, valid_loss = 1.098, time = 0.172
+710/50000, loss = 1.099, regloss = 1.05313, valid_loss = 1.093, time = 0.156
+720/50000, loss = 0.972, regloss = 1.05373, valid_loss = 1.091, time = 0.156
+730/50000, loss = 1.033, regloss = 1.05003, valid_loss = 1.091, time = 0.156
+740/50000, loss = 0.982, regloss = 1.05032, valid_loss = 1.088, time = 0.172
+750/50000, loss = 1.028, regloss = 1.05194, valid_loss = 1.089, time = 0.156
+760/50000, loss = 1.121, regloss = 1.05412, valid_loss = 1.086, time = 0.203
+770/50000, loss = 1.098, regloss = 1.05435, valid_loss = 1.085, time = 0.156
+780/50000, loss = 1.067, regloss = 1.05650, valid_loss = 1.082, time = 0.156
+790/50000, loss = 0.938, regloss = 1.05337, valid_loss = 1.082, time = 0.156
+learning rate: 9.999999747378752e-05
+SAVED MODEL.
+800/50000, loss = 1.117, regloss = 1.05467, valid_loss = 1.081, time = 0.172
+810/50000, loss = 1.163, regloss = 1.05711, valid_loss = 1.079, time = 0.172
+820/50000, loss = 1.108, regloss = 1.05378, valid_loss = 1.078, time = 0.156
+830/50000, loss = 1.056, regloss = 1.05254, valid_loss = 1.077, time = 0.156
+840/50000, loss = 1.098, regloss = 1.05184, valid_loss = 1.078, time = 0.156
+850/50000, loss = 0.937, regloss = 1.05275, valid_loss = 1.075, time = 0.172
+860/50000, loss = 1.028, regloss = 1.05057, valid_loss = 1.074, time = 0.141
+870/50000, loss = 1.057, regloss = 1.05056, valid_loss = 1.075, time = 0.156
+880/50000, loss = 1.076, regloss = 1.04747, valid_loss = 1.072, time = 0.188
+890/50000, loss = 1.059, regloss = 1.04566, valid_loss = 1.070, time = 0.172
+attempt to load saved model...
+loaded model: saved\model.ckpt-900
+training...
+learning rate: 9.999999747378752e-05
+910/50000, loss = 1.107, regloss = 0.11116, valid_loss = 1.071, time = 0.172
+920/50000, loss = 0.876, regloss = 0.19713, valid_loss = 1.069, time = 0.156
+930/50000, loss = 0.984, regloss = 0.27658, valid_loss = 1.071, time = 0.156
+940/50000, loss = 0.926, regloss = 0.35068, valid_loss = 1.067, time = 0.156
+950/50000, loss = 1.027, regloss = 0.41355, valid_loss = 1.068, time = 0.172
+960/50000, loss = 1.004, regloss = 0.47199, valid_loss = 1.069, time = 0.156
+970/50000, loss = 1.030, regloss = 0.52614, valid_loss = 1.067, time = 0.156
+980/50000, loss = 1.204, regloss = 0.57640, valid_loss = 1.063, time = 0.156
+990/50000, loss = 1.010, regloss = 0.61940, valid_loss = 1.061, time = 0.156
+learning rate: 9.999999747378752e-05
+SAVED MODEL.
+1000/50000, loss = 1.008, regloss = 0.65643, valid_loss = 1.060, time = 0.234
+1010/50000, loss = 0.922, regloss = 0.69246, valid_loss = 1.058, time = 0.188
+1020/50000, loss = 1.005, regloss = 0.72124, valid_loss = 1.056, time = 0.156
+1030/50000, loss = 1.142, regloss = 0.75289, valid_loss = 1.055, time = 0.156
+1040/50000, loss = 1.161, regloss = 0.78137, valid_loss = 1.052, time = 0.172
+1050/50000, loss = 1.187, regloss = 0.80560, valid_loss = 1.051, time = 0.156
+1060/50000, loss = 0.878, regloss = 0.82521, valid_loss = 1.046, time = 0.172
+1070/50000, loss = 1.109, regloss = 0.84270, valid_loss = 1.045, time = 0.156
+1080/50000, loss = 0.982, regloss = 0.85672, valid_loss = 1.041, time = 0.156
+1090/50000, loss = 0.939, regloss = 0.87166, valid_loss = 1.036, time = 0.172
+SAVED MODEL.
+1100/50000, loss = 0.930, regloss = 0.88174, valid_loss = 1.033, time = 0.172
+1110/50000, loss = 0.893, regloss = 0.88924, valid_loss = 1.029, time = 0.172
+1120/50000, loss = 1.133, regloss = 0.89713, valid_loss = 1.021, time = 0.172
+1130/50000, loss = 0.989, regloss = 0.90641, valid_loss = 1.018, time = 0.172
