@@ -3,28 +3,28 @@ import _pickle as cPickle
 import numpy as np
 import xml.etree.ElementTree as ET
 import random
-from utils import *
-
-import matplotlib.pyplot as plt
-%matplotlib inline
-from model import *
 import time
 
+import matplotlib.pyplot as plt
+from utils import *
+from model import *
+
+# Model parameters
 # Model parameters
 class Param():
     def __init__(self):
         # General parameters
         self.train = 1 # Train the model
         self.sample = 0 # Sample from the model
-        self.rnn_size = 100 # Size of RNN hidden state
+        self.rnn_size = 256 # Size of RNN hidden state
         self.tsteps = 150 # RNN time steps (for backprop)
-        self.nmixtures = 8 # Number of gaussian mixtures
+        self.nmixtures = 20 # Number of gaussian mixtures
 
         # Training parameters
-        self.batch_size = 32 # Batch size for each gradient step
+        self.batch_size = 64 # Batch size for each gradient step
         self.nbatches = 500 # Number of batches per epoch, default is 500
-        self.nepochs = 250 # Number of epochs, default is 250
-        self.dropout = 1. # Probability of keeping neuron during dropout
+        self.nepochs = 100 # Number of epochs, default is 250
+        self.dropout = 0.95 # Probability of keeping neuron during dropout
         self.grad_clip = 10. # Clip gradients to this magnitude, default 10
         self.optimizer = 'rmsprop' # Ctype of optimizer: 'rmsprop' or 'adam'
         self.learning_rate = 1e-4 # Learning rate
@@ -42,7 +42,7 @@ class Param():
         self.log_dir ='./logs/' # Location, relative to execution, of log files
         self.data_dir ='./data' # Location, relative to execution, of data
         self.save_path ='saved/model.ckpt' # Location to save model
-        self.save_every = 500 # Number of batches between each save
+        self.save_every = 2000 # Number of batches between each save
 
         # Sampling
         self.text ='' # String for sampling model (defaults to test cases)
@@ -51,6 +51,8 @@ class Param():
         self.sleep_time=60*5 # Time to sleep between running sampler
         
 args = Param()
+
+# Training the model
 
 # Training the model
 
@@ -73,6 +75,8 @@ logger.write("training...")
 model.sess.run(tf.assign(model.decay, args.decay ))
 model.sess.run(tf.assign(model.momentum, args.momentum ))
 running_average = 0.0 ; remember_rate = 0.99
+training_time = time.time() # Used to compute global training time of the model
+
 for e in range(int(global_step/args.nbatches), args.nepochs):
     model.sess.run(tf.assign(model.learning_rate, args.learning_rate * (args.lr_decay ** e)))
     logger.write("learning rate: {}".format(model.learning_rate.eval()))
@@ -87,8 +91,12 @@ for e in range(int(global_step/args.nbatches), args.nepochs):
         if global_step is not 0 : i+=1 ; global_step = 0
 
         if i % args.save_every == 0 and (i > 0):
-            model.saver.save(model.sess, args.save_path, global_step = i) ; logger.write('SAVED MODEL')
-
+            model.time = model.time + time.time() - training_time
+            model.saver.save(model.sess, args.save_path, global_step = i) ; 
+            logger.write('SAVED MODEL.')
+            training_time = time.time()
+            print("The total time of training is:",model.time,"s.")
+            
         start = time.time()
         x, y, s, c = data_loader.next_batch()
 
@@ -104,5 +112,5 @@ for e in range(int(global_step/args.nbatches), args.nepochs):
         running_average = running_average*remember_rate + train_loss*(1-remember_rate)
 
         end = time.time()
-        if i % 50 is 0: logger.write("{}/{}, loss = {:.3f}, regloss = {:.5f}, valid_loss = {:.3f}, time = {:.3f}" \
-            .format(i, args.nepochs * args.nbatches, train_loss, running_average, valid_loss, end - start))
+        if i % 10 is 0: logger.write("{}/{}, loss = {:.3f}, regloss = {:.5f}, valid_loss = {:.3f}, time = {:.3f}" \
+            .format(i, args.nepochs * args.nbatches, train_loss, running_average, valid_loss, end - start))     
